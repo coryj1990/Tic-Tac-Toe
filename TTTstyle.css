@@ -1,4 +1,4 @@
-div {
+.clickdiv {
 	height: 22px;
 	width: 22px;
 	background-color: #f2f2f2;
@@ -10,6 +10,13 @@ div {
 	height: 22px;
 	width: 22px;
 	font-size: 22px;
+	text-align: center;
+	background-color: #ffffff;
+}
+
+.tiediv {
+	height: 22px;
+	width: 22px;
 	background-color: #ffffff;
 }
 

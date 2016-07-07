@@ -17,14 +17,15 @@ $ties = $_GET[ties];
 print_r($_GET);
 ?>
 
-
+<div class="thepage">
 <p><?php 
 echo winnercontrol($boardval, $num, $Xwins, $Owins, $ties);
-echo $Xwins;
+
 ?></p>
 
 
 <body>
+
 <table class="playboard">
 	<tr>
 		<td class="rightbotbord"> <?php isitempty(0,$boardval,$num,$first, $Xwins, $Owins, $ties);?> </td>
@@ -43,9 +44,10 @@ echo $Xwins;
 	</tr>
 </table>
 
-
+<div class="gameopts">
 <a href="whoisxo.php"> Reset? </a>
 <a href="TTT.php?num=<?php echo $first;?>&boardval=000000000&first=<?php echo $first;?>&Xwins=<?php echo $Xwins;?>&Owins=<?php echo $Owins?>&ties=<?php echo $ties?>"> Rematch? </a>
+</div>
 
 <table>
 <tr> 
@@ -56,7 +58,7 @@ echo $Xwins;
 	<td> <?php echo $ties; ?> </td> </tr>
 </table>
 
-
+</div>
 </body>
 </html>
 

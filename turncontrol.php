@@ -85,7 +85,7 @@ function winnercontrol ($boardval, $num, $Xwins, $Owins, $ties) {
 		) {
 		echo "Winner is X!!!!";
 		$Xwins += 1;
-		echo $Xwins;
+	
 	}
 	elseif (
 		$boardval[0] + $boardval[1] + $boardval[2] == 15 ||
@@ -99,14 +99,14 @@ function winnercontrol ($boardval, $num, $Xwins, $Owins, $ties) {
 		) {
 		echo "Winner is O!!!!";
 		$Owins =+ 1;
-		echo $Owins;
+		
 	}
 
 	elseif ($num > 10)
 		{		
 		echo "YOU TIED!!!";
 		$ties += 1;
-		echo $ties;
+	
 	}
 
 	else { 
@@ -116,9 +116,7 @@ function winnercontrol ($boardval, $num, $Xwins, $Owins, $ties) {
 			?> Place your O on the board <?php ;}
 	;}
 
-	echo $Xwins;
-	echo $Owins;
-	echo $ties;
+
 
 }
 

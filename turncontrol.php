@@ -1,12 +1,13 @@
 <?php
 
-function xoro ($spot ,$boardval, $num) {
+
+function xoro ($spot ,$boardval) {
 
 	if ($boardval[$spot]== 3) {
-		echo X;
+		print X;
 	}
 	elseif ($boardval[$spot]== 5) {
-		echo O;
+		print O;
 	}
 	
 }
@@ -26,11 +27,10 @@ function thequerystuff ($spot, $boardval, $num) {
 
 
 function isitempty ($spot, $boardval, $num, $first, $Xwins, $Owins, $ties) {
-	global $Xwins, $Owins, $ties;
 	
 	if ($boardval[$spot] != 0) {
 		?>
-		<div class="noback"><?php echo xoro($spot, $boardval, $boardval[$spot]); ?></div>	
+		<div class="noback"><?php echo xoro($spot, $boardval); ?></div>	
 		<?php ;}
 
 	elseif (
@@ -64,14 +64,14 @@ function isitempty ($spot, $boardval, $num, $first, $Xwins, $Owins, $ties) {
 		&first=<?php echo $first;?>
 		&Xwins=<?php echo $Xwins;?>
 		&Owins=<?php echo $Owins;?>
-		&ties=<?php echo $ties?>"><div class="clickdiv"><?php echo xoro($spot,$boardval,$num);?></div></a> 
+		&ties=<?php echo $ties?>"><div class="clickdiv"><?php echo xoro($spot,$boardval);?></div></a> 
 		<?php ;
 	}
 
 	
 }
 
-function winnercontrol ($boardval, $num, $Xwins, $Owins, $ties) {
+function winnercontrol ($boardval, $num, $first, $Xwins, $Owins, $ties) {
 	global $Xwins, $Owins, $ties;
 
 	if ($boardval[0] + $boardval[1] + $boardval[2] == 9 ||
@@ -98,15 +98,18 @@ function winnercontrol ($boardval, $num, $Xwins, $Owins, $ties) {
 		$boardval[2] + $boardval[4] + $boardval[6] == 15
 		) {
 		echo "Winner is O!!!!";
-		$Owins =+ 1;
+		$Owins += 1;
 		
 	}
-
-	elseif ($num > 10)
-		{		
-		echo "YOU TIED!!!";
-		$ties += 1;
 	
+	elseif($num == 11 and $first == 2){
+		echo "You tied!";
+		$ties += 1;
+	}	
+
+	elseif($num == 12 and $first == 3){
+		echo "You tied!";
+		$ties += 1;
 	}
 
 	else { 
@@ -115,9 +118,6 @@ function winnercontrol ($boardval, $num, $Xwins, $Owins, $ties) {
 		elseif ($num%2 != 0) {
 			?> Place your O on the board <?php ;}
 	;}
-
-
-
 }
 
 ?>

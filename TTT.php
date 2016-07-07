@@ -4,7 +4,7 @@
 <link type="text/css"; rel="stylesheet"; href="TTTstyle.css"/>
 </head>
 
-
+<!-- Getting query params and needed global variables to get games won tracker to work -->
 <?php 
 include 'turncontrol.php';
 global $Xwins, $Owins, $ties;
@@ -17,15 +17,16 @@ $ties = $_GET[ties];
 print_r($_GET);
 ?>
 
+<!-- Sets the instruction for the player -->
 <div class="thepage">
 <p><?php 
 echo winnercontrol($boardval, $num, $Xwins, $Owins, $ties);
-
 ?></p>
 
 
 <body>
 
+<!-- This creates the board, determines which spots had already been selected, and what they were selected with -->
 <table class="playboard">
 	<tr>
 		<td class="rightbotbord"> <?php isitempty(0,$boardval,$num,$first, $Xwins, $Owins, $ties);?> </td>
@@ -44,11 +45,13 @@ echo winnercontrol($boardval, $num, $Xwins, $Owins, $ties);
 	</tr>
 </table>
 
+<!-- Here is where we can either start another set of games, or continue onto the next game of the ongoing set -->
 <div class="gameopts">
 <a href="whoisxo.php"> Reset? </a>
 <a href="TTT.php?num=<?php echo $first;?>&boardval=000000000&first=<?php echo $first;?>&Xwins=<?php echo $Xwins;?>&Owins=<?php echo $Owins?>&ties=<?php echo $ties?>"> Rematch? </a>
 </div>
 
+<!-- Presents the current set of wins for either player and ties -->
 <table>
 <tr> 
 	<td> <?php echo $Xwins; ?> </td> </tr>
@@ -61,9 +64,3 @@ echo winnercontrol($boardval, $num, $Xwins, $Owins, $ties);
 </div>
 </body>
 </html>
-
-
-
-
-
-

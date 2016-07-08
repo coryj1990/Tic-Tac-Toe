@@ -6,21 +6,24 @@
 
 <!-- Getting query params and needed global variables to get games won tracker to work -->
 <?php 
+session_start();
 include 'turncontrol.php';
 global $Xwins, $Owins, $ties;
-$num = $_GET[num];
+$num = $_SESSION['numses'];
 $boardval = $_GET[boardval]; 
 $first = $_GET[first];
 $Xwins = $_GET[Xwins];
 $Owins = $_GET[Owins];
 $ties = $_GET[ties];
 print_r($_GET);
+$sessdata = $_SESSION;
+print_r($sessdata);
 ?>
 
 <!-- Sets the instruction for the player -->
 <div class="thepage">
 <p><?php 
-echo winnercontrol($boardval, $num, $Xwins, $Owins, $ties);
+echo winnercontrol($boardval, $num, $first, $Xwins, $Owins, $ties);
 ?></p>
 
 
@@ -47,7 +50,7 @@ echo winnercontrol($boardval, $num, $Xwins, $Owins, $ties);
 
 <!-- Here is where we can either start another set of games, or continue onto the next game of the ongoing set -->
 <div class="gameopts">
-<a href="whoisxo.php"> Reset? </a>
+<a href="destroyseswhoisxo.php"> Reset? </a>
 <a href="TTT.php?num=<?php echo $first;?>&boardval=000000000&first=<?php echo $first;?>&Xwins=<?php echo $Xwins;?>&Owins=<?php echo $Owins?>&ties=<?php echo $ties?>"> Rematch? </a>
 </div>
 
